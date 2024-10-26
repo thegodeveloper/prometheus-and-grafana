@@ -153,6 +153,32 @@ The default username is `admin` and you can get the password with the following 
 k get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
+## Install Kube Prometheus Stack
+
+### Get the Helm Chart Values
+
+```shell
+helm show values prometheus-community/kube-prometheus-stack > kubernetes/manifests/values.yaml
+```
+
+```shell
+helm install prometheus prometheus-community/kube-prometheus-stack --set nodeExporter.enable=false
+```
+
+```shell
+k expose deploy prometheus-grafana --type=LoadBalancer --port=9090 --target-port=80 --name=prometheus-grafana-ext -o yaml --dry-run=client > kubernetes/manifests/helm-prometheus-grafana.yaml
+```
+
+```shell
+k apply -f kubernetes/manifests/helm-prometheus-grafana.yaml
+service/prometheus-grafana-ext created
+```
+
+```shell
+k get secret --namespace default prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+prom-operator
+```
+
 ## References
 
 - [Setup Prometheus Monitoring on Kubernetes](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/)
