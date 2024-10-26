@@ -81,6 +81,78 @@ k delete ns monitoring
 namespace "monitoring" deleted
 ```
 
+## Installing Prometheus & Grafana with Helm
+
+### Add the Helm Repository
+
+```shell
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+"prometheus-community" already exists with the same configuration, skipping
+```
+
+### Update the Repository
+
+```shell
+helm repo update
+```
+
+### Search for Prometheus Repository
+
+```shell
+helm search repo prometheus
+```
+
+### Install Prometheus
+
+```shell
+helm install prometheus prometheus-community/prometheus
+```
+
+### Install Prometheus LoadBalancer
+
+```shell
+k apply -f kubernetes/manifests/helm-prometheus-service.yaml
+service/prometheus-sever-ext created
+```
+
+## Install Grafana
+
+### Install the Grafana Helm Repo
+
+```shell
+helm repo add grafana https://grafana.github.io/helm-charts
+"grafana" already exists with the same configuration, skipping
+```
+
+### Install Grafana
+
+```shell
+helm install grafana grafana/grafana
+```
+
+### Create the Grafana Service
+
+```shell
+k apply -f kubernetes/manifests/helm-grafana-service.yaml
+service/grafana-sever-ext created
+```
+
+### Validate the Grafana External Service
+
+```shell
+k get svc grafana-ext
+NAME          TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+grafana-ext   LoadBalancer   10.96.80.182   localhost     9091:31810/TCP   38s
+```
+
+### Get the Grafana Password
+
+The default username is `admin` and you can get the password with the following command:
+
+```shell
+k get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
 ## References
 
 - [Setup Prometheus Monitoring on Kubernetes](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/)
