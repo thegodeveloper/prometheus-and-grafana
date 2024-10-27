@@ -165,6 +165,13 @@ helm show values prometheus-community/kube-prometheus-stack > kubernetes/manifes
 helm install prometheus prometheus-community/kube-prometheus-stack --set nodeExporter.enable=false
 ```
 
+### Patch the prometheus-prometheus-node-exporter
+
+```shell
+kubectl patch ds prometheus-prometheus-node-exporter --type "json" -p '[{"op": "remove", "path" : "/spec/template/spec/containers/0/volumeMounts/2/mountPropagation"}]'
+daemonset.apps/prometheus-prometheus-node-exporter patched
+```
+
 ```shell
 k expose deploy prometheus-grafana --type=LoadBalancer --port=9090 --target-port=80 --name=prometheus-grafana-ext -o yaml --dry-run=client > kubernetes/manifests/helm-prometheus-grafana.yaml
 ```
