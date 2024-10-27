@@ -60,6 +60,14 @@ NAME                             READY   STATUS    RESTARTS   AGE
 metrics-server-869cd9f57-g4wlb   1/1     Running   0          2m22s
 ```
 
+### Validate Metrics Server Functionality 
+
+```shell
+k top nodes
+NAME             CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+docker-desktop   485m         4%     6541Mi          41%
+```
+
 ## Install Elasticsearch
 
 ### Install Elasticsearch in Kubernetes
