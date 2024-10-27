@@ -14,6 +14,52 @@ helm repo add elastic https://helm.elastic.co
 "elastic" has been added to your repositories
 ```
 
+## Add Kubernetes Metrics Server
+
+In my case the repo already exists.
+
+```shell
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+"metrics-server" already exists with the same configuration, skipping
+```
+
+## Install Metrics Server
+
+```shell
+helm upgrade --install --set args={--kubelet-insecure-tls} metrics-server metrics-server/metrics-server --namespace kube-system
+Release "metrics-server" does not exist. Installing it now.
+NAME: metrics-server
+LAST DEPLOYED: Sun Oct 27 12:22:06 2024
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+***********************************************************************
+* Metrics Server                                                      *
+***********************************************************************
+  Chart version: 3.12.2
+  App version:   0.7.2
+  Image tag:     registry.k8s.io/metrics-server/metrics-server:v0.7.2
+***********************************************************************
+```
+
+### Validate Metrics Server Installation
+
+```shell
+helm -n kube-system list
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+metrics-server  kube-system     1               2024-10-27 12:22:06.801834 -0500 -05    deployed        metrics-server-3.12.2   0.7.2
+```
+
+### Validate Metrics Server Pods
+
+```shell
+k -n kube-system get pods -l app.kubernetes.io/name=metrics-server
+NAME                             READY   STATUS    RESTARTS   AGE
+metrics-server-869cd9f57-g4wlb   1/1     Running   0          2m22s
+```
+
 ## Install Elasticsearch
 
 ### Install Elasticsearch in Kubernetes
