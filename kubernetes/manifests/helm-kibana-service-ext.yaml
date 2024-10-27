@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kibana
+    app.kubernetes.io/managed-by: Helm
+    heritage: Helm
+    release: kibana
+  name: kibana-ext
+  namespace: elk
+spec:
+  ports:
+  - port: 5601
+    protocol: TCP
+    targetPort: 5601
+  selector:
+    app: kibana
+    release: kibana
+  type: LoadBalancer
