@@ -7,7 +7,7 @@ metadata:
     k8s-app: elastic-agent
 data:
   agent.yml: |-
-    id: f1cb4840-9484-11ef-bb4c-8fdc635c395c
+    id: a104f7b0-9495-11ef-bb4c-8fdc635c395c
     outputs:
       default:
         type: elasticsearch
@@ -16,17 +16,17 @@ data:
         username: '${ES_USERNAME}'
         password: '${ES_PASSWORD}'
     inputs:
-      - id: kubernetes/metrics-kubelet-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: kubernetes/metrics-kubelet-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.container-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.container-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.container
@@ -39,7 +39,7 @@ data:
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
             ssl.verification_mode: none
           - id: >-
-              kubernetes/metrics-kubernetes.node-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.node-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.node
@@ -52,7 +52,7 @@ data:
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
             ssl.verification_mode: none
           - id: >-
-              kubernetes/metrics-kubernetes.pod-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.pod-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.pod
@@ -65,7 +65,7 @@ data:
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
             ssl.verification_mode: none
           - id: >-
-              kubernetes/metrics-kubernetes.system-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.system-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.system
@@ -78,7 +78,7 @@ data:
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
             ssl.verification_mode: none
           - id: >-
-              kubernetes/metrics-kubernetes.volume-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.volume-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.volume
@@ -95,17 +95,17 @@ data:
             name: kubernetes
             version: 1.29.2
       - id: >-
-          kubernetes/metrics-kube-state-metrics-f1a029e0-59d5-4402-8c71-43f67660586f
+          kubernetes/metrics-kube-state-metrics-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.state_container-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_container-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_container
@@ -118,7 +118,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_cronjob-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_cronjob-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_cronjob
@@ -131,7 +131,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_daemonset-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_daemonset-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_daemonset
@@ -144,7 +144,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_deployment-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_deployment-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_deployment
@@ -157,7 +157,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_job-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_job-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_job
@@ -170,7 +170,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_node-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_node-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_node
@@ -183,7 +183,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_persistentvolume-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_persistentvolume-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_persistentvolume
@@ -196,7 +196,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_persistentvolumeclaim-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_persistentvolumeclaim-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_persistentvolumeclaim
@@ -209,7 +209,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_pod-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_pod-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_pod
@@ -222,7 +222,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_replicaset-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_replicaset-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_replicaset
@@ -235,7 +235,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_resourcequota-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_resourcequota-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_resourcequota
@@ -248,7 +248,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_service-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_service-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_service
@@ -261,7 +261,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_statefulset-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_statefulset-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_statefulset
@@ -274,7 +274,7 @@ data:
             condition: '${kubernetes_leaderelection.leader} == true'
             bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
           - id: >-
-              kubernetes/metrics-kubernetes.state_storageclass-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.state_storageclass-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.state_storageclass
@@ -290,17 +290,17 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: kubernetes/metrics-kube-apiserver-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: kubernetes/metrics-kube-apiserver-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.apiserver-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.apiserver-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.apiserver
@@ -318,17 +318,17 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: kubernetes/metrics-kube-proxy-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: kubernetes/metrics-kube-proxy-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.proxy-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.proxy-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.proxy
@@ -341,17 +341,17 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: kubernetes/metrics-kube-scheduler-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: kubernetes/metrics-kube-scheduler-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.scheduler-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.scheduler-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.scheduler
@@ -368,17 +368,17 @@ data:
             name: kubernetes
             version: 1.29.2
       - id: >-
-          kubernetes/metrics-kube-controller-manager-f1a029e0-59d5-4402-8c71-43f67660586f
+          kubernetes/metrics-kube-controller-manager-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.controllermanager-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.controllermanager-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.controllermanager
@@ -394,17 +394,17 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: kubernetes/metrics-events-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: kubernetes/metrics-events-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: kubernetes/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              kubernetes/metrics-kubernetes.event-f1a029e0-59d5-4402-8c71-43f67660586f
+              kubernetes/metrics-kubernetes.event-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: metrics
               dataset: kubernetes.event
@@ -418,14 +418,14 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: filestream-container-logs-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: filestream-container-logs-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: filestream
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
               kubernetes-container-logs-${kubernetes.pod.name}-${kubernetes.container.id}
@@ -443,17 +443,17 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: filestream-audit-logs-f1a029e0-59d5-4402-8c71-43f67660586f
+      - id: filestream-audit-logs-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         revision: 1
         name: k8s-docker-desktop
         type: filestream
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: f1a029e0-59d5-4402-8c71-43f67660586f
+        package_policy_id: 8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
         streams:
           - id: >-
-              filestream-kubernetes.audit_logs-f1a029e0-59d5-4402-8c71-43f67660586f
+              filestream-kubernetes.audit_logs-8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340
             data_stream:
               type: logs
               dataset: kubernetes.audit_logs
@@ -501,16 +501,16 @@ data:
           package:
             name: kubernetes
             version: 1.29.2
-      - id: logfile-system-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+      - id: logfile-system-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
         revision: 1
-        name: system-1
+        name: system-2
         type: logfile
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: 28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+        package_policy_id: 55e78bb8-fd1b-42b9-9d57-4c2daba850c4
         streams:
-          - id: logfile-system.auth-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: logfile-system.auth-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: logs
               dataset: system.auth
@@ -527,7 +527,7 @@ data:
               - system-auth
             processors:
               - add_locale: null
-          - id: logfile-system.syslog-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: logfile-system.syslog-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: logs
               dataset: system.syslog
@@ -546,30 +546,30 @@ data:
           package:
             name: system
             version: 1.25.2
-      - id: winlog-system-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+      - id: winlog-system-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
         revision: 1
-        name: system-1
+        name: system-2
         type: winlog
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: 28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+        package_policy_id: 55e78bb8-fd1b-42b9-9d57-4c2daba850c4
         streams:
-          - id: winlog-system.application-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: winlog-system.application-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: logs
               dataset: system.application
             name: Application
             condition: '${host.platform} == ''windows'''
             ignore_older: 72h
-          - id: winlog-system.security-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: winlog-system.security-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: logs
               dataset: system.security
             name: Security
             condition: '${host.platform} == ''windows'''
             ignore_older: 72h
-          - id: winlog-system.system-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: winlog-system.system-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: logs
               dataset: system.system
@@ -580,16 +580,16 @@ data:
           package:
             name: system
             version: 1.25.2
-      - id: system/metrics-system-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+      - id: system/metrics-system-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
         revision: 1
-        name: system-1
+        name: system-2
         type: system/metrics
         data_stream:
           namespace: default
         use_output: default
-        package_policy_id: 28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+        package_policy_id: 55e78bb8-fd1b-42b9-9d57-4c2daba850c4
         streams:
-          - id: system/metrics-system.cpu-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.cpu-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.cpu
@@ -599,7 +599,7 @@ data:
               - percentages
               - normalized_percentages
             period: 10s
-          - id: system/metrics-system.diskio-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.diskio-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.diskio
@@ -608,7 +608,7 @@ data:
             diskio.include_devices: null
             period: 10s
           - id: >-
-              system/metrics-system.filesystem-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+              system/metrics-system.filesystem-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.filesystem
@@ -618,7 +618,7 @@ data:
             processors:
               - drop_event.when.regexp:
                   system.filesystem.mount_point: ^/(sys|cgroup|proc|dev|etc|host|lib|snap)($|/)
-          - id: system/metrics-system.fsstat-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.fsstat-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.fsstat
@@ -628,7 +628,7 @@ data:
             processors:
               - drop_event.when.regexp:
                   system.fsstat.mount_point: ^/(sys|cgroup|proc|dev|etc|host|lib|snap)($|/)
-          - id: system/metrics-system.load-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.load-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.load
@@ -636,14 +636,14 @@ data:
               - load
             condition: '${host.platform} != ''windows'''
             period: 10s
-          - id: system/metrics-system.memory-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.memory-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.memory
             metricsets:
               - memory
             period: 10s
-          - id: system/metrics-system.network-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.network-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.network
@@ -651,7 +651,7 @@ data:
               - network
             period: 10s
             network.interfaces: null
-          - id: system/metrics-system.process-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.process-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.process
@@ -666,7 +666,7 @@ data:
             processes:
               - .*
           - id: >-
-              system/metrics-system.process.summary-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+              system/metrics-system.process.summary-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.process.summary
@@ -674,14 +674,14 @@ data:
               - process_summary
             period: 10s
           - id: >-
-              system/metrics-system.socket_summary-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+              system/metrics-system.socket_summary-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.socket_summary
             metricsets:
               - socket_summary
             period: 10s
-          - id: system/metrics-system.uptime-28b5c5f4-0294-4b80-8ab4-6e6e476d53db
+          - id: system/metrics-system.uptime-55e78bb8-fd1b-42b9-9d57-4c2daba850c4
             data_stream:
               type: metrics
               dataset: system.uptime
@@ -786,7 +786,7 @@ data:
         _elastic_agent_checks:
           cluster:
             - monitor
-        f1a029e0-59d5-4402-8c71-43f67660586f:
+        8c6dbd7b-897c-4ea1-9ee4-1fcb313f5340:
           indices:
             - names:
                 - metrics-kubernetes.container-default
@@ -866,7 +866,7 @@ data:
             - names:
                 - logs-kubernetes.audit_logs-default
               privileges: *ref_0
-        28b5c5f4-0294-4b80-8ab4-6e6e476d53db:
+        55e78bb8-fd1b-42b9-9d57-4c2daba850c4:
           indices:
             - names:
                 - logs-system.auth-default
