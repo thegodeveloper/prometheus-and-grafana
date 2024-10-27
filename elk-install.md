@@ -14,6 +14,61 @@ helm repo add elastic https://helm.elastic.co
 "elastic" has been added to your repositories
 ```
 
+## Install Kube State Metrics
+
+### Add Kube State Metrics Helm Repository
+
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
+```
+
+### Install Kube State Metrics
+
+```shell
+helm install kube-state-metrics bitnami/kube-state-metrics --version 4.2.14
+NAME: kube-state-metrics
+LAST DEPLOYED: Sun Oct 27 13:05:45 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: kube-state-metrics
+CHART VERSION: 4.2.14
+APP VERSION: 2.13.0
+
+** Please be patient while the chart is being deployed **
+
+Watch the kube-state-metrics Deployment status using the command:
+
+    kubectl get deploy -w --namespace default kube-state-metrics
+
+kube-state-metrics can be accessed via port "8080" on the following DNS name from within your cluster:
+
+    kube-state-metrics.default.svc.cluster.local
+
+To access kube-state-metrics from outside the cluster execute the following commands:
+
+    echo "URL: http://127.0.0.1:9100/"
+    kubectl port-forward --namespace default svc/kube-state-metrics 9100:8080
+
+WARNING: There are "resources" sections in the chart not set. Using "resourcesPreset" is not recommended for production. For production installations, please set the following values according to your workload needs:
+  - resources
++info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+```
+
+### Validate Kube State Metrics Helm Deployment
+
+```shell
+helm list
+NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+kube-state-metrics      default         1               2024-10-27 13:05:45.250711 -0500 -05    deployed        kube-state-metrics-4.2.14       2.13.0     
+prometheus              default         1               2024-10-26 12:35:41.597079 -0500 -05    deployed        kube-prometheus-stack-65.5.0    v0.77.2
+```
+
+
+
 ## Add Kubernetes Metrics Server
 
 In my case the repo already exists.
@@ -234,5 +289,6 @@ elastic-agent-h8jd4   1/1     Running   0          2m47s
 
 ## Resources
 
+- https://artifacthub.io/packages/helm/bitnami/kube-state-metrics
 - https://artifacthub.io/packages/helm/elastic/elasticsearch
 - https://artifacthub.io/packages/helm/elastic/kibana
