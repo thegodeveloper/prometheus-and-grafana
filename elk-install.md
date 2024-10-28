@@ -108,6 +108,12 @@ docker-desktop   485m         4%     6541Mi          41%
 
 ## Install Elasticsearch
 
+### Add Elasticsearch Helm Repository
+
+```shell
+helm repo add elastic https://helm.elastic.co
+```
+
 ### Install Elasticsearch in Kubernetes
 
 ```shell
