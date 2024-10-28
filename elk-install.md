@@ -49,8 +49,7 @@ They are designed to be consumed either by Prometheus itself or by a scraper tha
 ```shell
 helm list
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
-kube-state-metrics      default         1               2024-10-27 13:55:08.533762 -0500 -05    deployed        kube-state-metrics-5.26.0       2.13.0     
-prometheus              default         1               2024-10-26 12:35:41.597079 -0500 -05    deployed        kube-prometheus-stack-65.5.0    v0.77.2 
+kube-state-metrics      default         1               2024-10-27 22:46:45.108696 -0500 -05    deployed        kube-state-metrics-5.26.0       2.13.0
 ```
 
 ## Add Kubernetes Metrics Server
@@ -276,3 +275,4 @@ elastic-agent-h8jd4   1/1     Running   0          2m47s
 - https://artifacthub.io/packages/helm/prometheus-community/kube-state-metrics/
 - https://artifacthub.io/packages/helm/elastic/elasticsearch
 - https://artifacthub.io/packages/helm/elastic/kibana
+- https://artifacthub.io/packages/helm/bitnami/fluentd
