@@ -96,6 +96,17 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm show values prometheus-community/prometheus
 ```
 
+### How to get the Chart Versions
+
+```shell
+helm search repo prometheus-community/prometheus --versions | head -n 5
+NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       
+prometheus-community/prometheus                         25.28.0         v2.55.0         Prometheus is a monitoring system and time seri...
+prometheus-community/prometheus                         25.27.0         v2.54.1         Prometheus is a monitoring system and time seri...
+prometheus-community/prometheus                         25.26.0         v2.54.0         Prometheus is a monitoring system and time seri...
+prometheus-community/prometheus                         25.25.0         v2.53.1         Prometheus is a monitoring system and time seri...
+```
+
 ### Update the Repository
 
 ```shell
