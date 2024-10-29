@@ -90,6 +90,12 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 "prometheus-community" already exists with the same configuration, skipping
 ```
 
+### How to get the default values
+
+```shell
+helm show values prometheus-community/prometheus
+```
+
 ### Update the Repository
 
 ```shell
