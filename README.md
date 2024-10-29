@@ -141,6 +141,17 @@ helm repo add grafana https://grafana.github.io/helm-charts
 "grafana" already exists with the same configuration, skipping
 ```
 
+### Get Grafana Helm Versions
+
+```shell
+helm search repo grafana/grafana --versions | head -n 5
+NAME                            CHART VERSION   APP VERSION             DESCRIPTION                                       
+grafana/grafana                 8.5.8           11.2.2-security-01      The leading tool for querying and visualizing t...
+grafana/grafana                 8.5.7           11.2.2-security-01      The leading tool for querying and visualizing t...
+grafana/grafana                 8.5.6           11.2.2                  The leading tool for querying and visualizing t...
+grafana/grafana                 8.5.5           11.2.2                  The leading tool for querying and visualizing t...
+```
+
 ### Install Grafana
 
 ```shell
